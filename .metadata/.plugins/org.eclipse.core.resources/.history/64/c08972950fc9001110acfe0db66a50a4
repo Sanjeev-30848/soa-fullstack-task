@@ -1,0 +1,21 @@
+package com.klef.soa.exam.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.klef.soa.exam.entity.CrudEntity;
+import com.klef.soa.exam.repository.CrudRepository;
+
+public class CrudServiceImpl implements CrudService
+{
+	
+	@Autowired
+	private CrudRepository repository;
+
+	@Override
+	public String addFood(CrudEntity crudEntity) 
+	{
+		repository.save(null)
+		return null;
+	}
+	
+}

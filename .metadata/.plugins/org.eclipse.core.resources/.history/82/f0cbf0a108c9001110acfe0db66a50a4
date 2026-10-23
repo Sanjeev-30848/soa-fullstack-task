@@ -1,0 +1,7 @@
+spring.application.name=CrudService
+
+server.port=8081
+
+eureka.instance.appname=crud-service-
+eureka.instance.hostname=localhost
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/

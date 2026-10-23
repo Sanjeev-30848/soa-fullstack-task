@@ -1,0 +1,91 @@
+
+package com.klef.soa.exam.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.klef.soa.exam.entity.CrudEntity;
+import com.klef.soa.exam.service.CrudService;
+
+@RestController
+@RequestMapping("/crud")
+public class CrudController {
+
+    @Autowired
+    private CrudService service;
+
+    @GetMapping("/")
+    public String demo() {
+        return "Food Delivery Application - 2400030848";
+    }
+    
+    @PostMapping("/add")
+    public ResponseEntity<String> addFood(@RequestBody CrudEntity c) {
+        String output = service.addFood(c);
+        return ResponseEntity.status(201).body(output);
+    }
+    
+    @GetMapping("/displayall")
+    public ResponseEntity<List<CrudEntity>> displayAll() 
+    {
+        List<CrudEntity> foods = service.displayFoods();
+        return ResponseEntity.ok(foods);
+    }
+    
+    
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteFood(@PathVariable int id) 
+    {
+        String output = service.deleteFood(id);
+
+        if (output.equals("Food ID Deleted Successfully")) 
+        {
+            return ResponseEntity.ok(output);
+        } 
+        else
+        {
+            return ResponseEntity.status(404).body(output);
+        }
+    }
+       @PutMapping("update/{id}")
+       public ResponseEntity<String> updateFood(@PathVariable int id, @RequestBody CrudEntity c)
+       {
+    	   String output = service.updateFood(id, c);
+    	   
+    	   if (output.equals("Food Updated Successfully")) 
+    	   {
+    	       return ResponseEntity.ok(output);
+    	   } 
+    	   else 
+    	   {
+    	       return ResponseEntity.status(404).body(output);
+    	   }
+    	}
+       
+       @GetMapping("/display/{id}")
+       public ResponseEntity<?> displayFoodById(@PathVariable int id) 
+       {
+           Optional<CrudEntity> food = service.displayFoodById(id);
+
+           if (food.isPresent()) 
+           {
+             return ResponseEntity.ok(food.get());
+           } else {
+               return ResponseEntity.status(404)
+                       .body("Food ID Not Found");
+           }
+       }
+       
+       }
+

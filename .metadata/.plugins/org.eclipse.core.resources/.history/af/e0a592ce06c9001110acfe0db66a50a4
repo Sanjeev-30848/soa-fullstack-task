@@ -1,0 +1,14 @@
+package com.klef.soa.exam.entity;
+
+import jakarta.persistence.Entity;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
+@NoArgsConstructor
+
+public class CrudEntity
+{
+
+}

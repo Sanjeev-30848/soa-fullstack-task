@@ -1,0 +1,7 @@
+package com.klef.soa.exam.service;
+
+
+public interface CrudService 
+{
+	public String 
+}

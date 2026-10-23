@@ -1,0 +1,6 @@
+package com.klef.soa.exam.repository;
+
+public class CrudRepository extends 
+{
+
+}

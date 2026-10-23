@@ -1,0 +1,8 @@
+package com.klef.soa.exam.repository;
+
+import org.springframework.data.jpa.repository.config.JpaRepositoryNameSpaceHandler;
+
+public class CrudRepository extends JpaRepositoryNameSpaceHandler
+{
+
+}

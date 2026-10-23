@@ -1,0 +1,15 @@
+package com.klef.soa.exam.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.klef.soa.exam.entity.CrudEntity;
+
+public interface CrudService 
+{	
+	public String addFood(CrudEntity crudEntity);
+	public List<CrudEntity> displayFoods();
+	public String deleteFood(int id);
+	public String updateFood(int id, CrudEntity crudEntity);
+	public Optional<CrudEntity> displayFoodById(int id);
+}

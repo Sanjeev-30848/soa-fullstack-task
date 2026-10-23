@@ -1,0 +1,17 @@
+package com.klef.soa.exam.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+//import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
+@NoArgsConstructor
+public class CrudEntity
+{
+	private int id;
+	private String orderCode
+
+}

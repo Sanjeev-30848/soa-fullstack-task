@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="false"/>
+		<list key="findhistory">
+			<item value="spring-boot-starter-webmvc"/>
+			<item value="springdoc-openapi-starter-webmvc-ui"/>
+			<item value="spring-boot-starter-web"/>
+			<item value="starter"/>
+			<item value="westa"/>
+			<item value="spring.clouf"/>
+			<item value="swagger"/>
+		</list>
+	</section>
+</section>
