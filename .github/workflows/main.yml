@@ -1,0 +1,36 @@
+name: Docker Fullstack CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Build and Push Frontend Image
+      - name: Build and Push Frontend
+        uses: docker/build-push-action@v5
+        with:
+          context: ./FoodDelivery-React
+          file: ./FoodDelivery-React/frontend.Dockerfile
+          push: true
+          tags: sanjeev30848/docker-frontend-2400030848:latest
+
+      # Build and Push Backend Image
+      - name: Build and Push Backend
+        uses: docker/build-push-action@v5
+        with:
+          context: ./CrudService
+          file: ./CrudService/backend.dockerfile
+          push: true
+          tags: sanjeev30848/docker-backend-2400030848:latest
